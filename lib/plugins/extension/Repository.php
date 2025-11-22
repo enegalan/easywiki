@@ -1,9 +1,9 @@
 <?php
 
-namespace dokuwiki\plugin\extension;
+namespace easywiki\plugin\extension;
 
-use dokuwiki\Cache\Cache;
-use dokuwiki\HTTP\DokuHTTPClient;
+use easywiki\Cache\Cache;
+use easywiki\HTTP\DokuHTTPClient;
 use JsonException;
 
 class Repository

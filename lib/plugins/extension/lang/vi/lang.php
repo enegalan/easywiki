@@ -92,4 +92,4 @@ $lang['auth']                  = 'Plugin xác thực này không được kích 
 $lang['install_url']           = 'Cài đặt từ URL:';
 $lang['install_upload']        = 'Tải lên phần mở rộng:';
 $lang['repo_error']            = 'Không thể kết nối đến Kho lưu trữ plugin. Đảm bảo rằng máy chủ của bạn được phép kết nối với www.dokuwiki.org và kiểm tra cài đặt proxy của bạn.';
-$lang['nossl']                 = 'PHP của bạn dường như bỏ lỡ hỗ trợ SSL. Tải xuống sẽ không hoạt động đối với nhiều phần mở rộng DokuWiki.';
+$lang['nossl']                 = 'PHP của bạn dường như bỏ lỡ hỗ trợ SSL. Tải xuống sẽ không hoạt động đối với nhiều phần mở rộng EasyWiki.';

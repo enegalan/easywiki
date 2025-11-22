@@ -1,24 +1,24 @@
 <?php
 
-namespace dokuwiki\Remote;
+namespace easywiki\Remote;
 
-use Doku_Renderer_xhtml;
-use dokuwiki\ChangeLog\PageChangeLog;
-use dokuwiki\ChangeLog\MediaChangeLog;
-use dokuwiki\Extension\AuthPlugin;
-use dokuwiki\Extension\Event;
-use dokuwiki\Remote\Response\Link;
-use dokuwiki\Remote\Response\Media;
-use dokuwiki\Remote\Response\MediaChange;
-use dokuwiki\Remote\Response\Page;
-use dokuwiki\Remote\Response\PageChange;
-use dokuwiki\Remote\Response\PageHit;
-use dokuwiki\Remote\Response\User;
-use dokuwiki\Utf8\Sort;
+use Wiki_Renderer_xhtml;
+use easywiki\ChangeLog\PageChangeLog;
+use easywiki\ChangeLog\MediaChangeLog;
+use easywiki\Extension\AuthPlugin;
+use easywiki\Extension\Event;
+use easywiki\Remote\Response\Link;
+use easywiki\Remote\Response\Media;
+use easywiki\Remote\Response\MediaChange;
+use easywiki\Remote\Response\Page;
+use easywiki\Remote\Response\PageChange;
+use easywiki\Remote\Response\PageHit;
+use easywiki\Remote\Response\User;
+use easywiki\Utf8\Sort;
 
 /**
  * Provides the core methods for the remote API.
- * The methods are ordered in 'wiki.<method>' and 'dokuwiki.<method>' namespaces
+ * The methods are ordered in 'wiki.<method>' and 'easywiki.<method>' namespaces
  */
 class ApiCore
 {
@@ -78,7 +78,7 @@ class ApiCore
     /**
      * Return the API version
      *
-     * This is the version of the DokuWiki API. It increases whenever the API definition changes.
+     * This is the version of the EasyWiki API. It increases whenever the API definition changes.
      *
      * When developing a client, you should check this version and make sure you can handle it.
      *
@@ -313,13 +313,13 @@ class ApiCore
      * Do a fulltext search
      *
      * This executes a full text search and returns the results. The query uses the standard
-     * DokuWiki search syntax.
+     * EasyWiki search syntax.
      *
      * Snippets are provided for the first 15 results only. The title is either the first heading
      * or the page id depending on the wiki's configuration.
      *
      * @link https://www.dokuwiki.org/search#syntax
-     * @param string $query The search query as supported by the DokuWiki search
+     * @param string $query The search query as supported by the EasyWiki search
      * @return PageHit[] A list of matching pages
      */
     public function searchPages($query)
@@ -531,7 +531,7 @@ class ApiCore
         $ins = p_cached_instructions(wikiFN($page), false, $page);
 
         // instantiate new Renderer - needed for interwiki links
-        $Renderer = new Doku_Renderer_xhtml();
+        $Renderer = new Wiki_Renderer_xhtml();
         $Renderer->interwiki = getInterwiki();
 
         // parse instructions
@@ -1042,11 +1042,11 @@ class ApiCore
 
         $auth = auth_quickaclcheck($media);
         $res = media_delete($media, $auth);
-        if ($res & DOKU_MEDIA_DELETED) {
+        if ($res & WIKI_MEDIA_DELETED) {
             return true;
-        } elseif ($res & DOKU_MEDIA_NOT_AUTH) {
+        } elseif ($res & WIKI_MEDIA_NOT_AUTH) {
             throw new AccessDeniedException('You are not allowed to delete this media file', 212);
-        } elseif ($res & DOKU_MEDIA_INUSE) {
+        } elseif ($res & WIKI_MEDIA_INUSE) {
             throw new RemoteException('Media file is still referenced', 232);
         } elseif (!media_exists($media)) {
             throw new RemoteException('The media file requested to delete does not exist', 221);

@@ -1,9 +1,9 @@
 <?php
 
-namespace dokuwiki\plugin\extension;
+namespace easywiki\plugin\extension;
 
-use dokuwiki\Extension\PluginController;
-use dokuwiki\Utf8\PhpString;
+use easywiki\Extension\PluginController;
+use easywiki\Utf8\PhpString;
 use RuntimeException;
 
 class Extension
@@ -220,7 +220,7 @@ class Extension
         if ($this->isTemplate()) {
             $dir = dirname(tpl_incdir()) . '/' . $this->base;
         } else {
-            $dir = DOKU_PLUGIN . $this->base;
+            $dir = WIKI_PLUGIN . $this->base;
         }
 
         return fullpath($dir);
@@ -445,7 +445,7 @@ class Extension
                 'testing',
                 'usermanager',
                 'logviewer',
-                'template:dokuwiki'
+                'template:easywiki'
             ]
         );
     }
@@ -672,7 +672,7 @@ class Extension
     }
 
     /**
-     * Get a list of DokuWiki versions this plugin is marked as compatible with
+     * Get a list of EasyWiki versions this plugin is marked as compatible with
      *
      * @return string[][] date -> version
      */

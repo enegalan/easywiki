@@ -1,11 +1,11 @@
 <?php
 
-use \dokuwiki\Input\Input;
+use \easywiki\Input\Input;
 
-class common_getGoogleQuery_test extends DokuWikiTest {
+class common_getGoogleQuery_test extends EasyWikiTest {
 
     /**
-     * https://github.com/dokuwiki/dokuwiki/issues/2848
+     * https://github.com/egalan/easywiki/issues/2848
      */
     function test_google_form(){
         global $INPUT;
@@ -23,7 +23,7 @@ class common_getGoogleQuery_test extends DokuWikiTest {
 
     function test_uncommon_url(){
         global $INPUT;
-        $_SERVER['HTTP_REFERER'] = 'http://search.example.com/search?q=DokuWiki';
+        $_SERVER['HTTP_REFERER'] = 'http://search.example.com/search?q=EasyWiki';
         $INPUT = new Input();
         $this->assertEquals('', getGoogleQuery());
     }

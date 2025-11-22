@@ -1,4 +1,4 @@
-styling Plugin for DokuWiki
+styling Plugin for EasyWiki
 
 Allows to edit style.ini replacements
 
@@ -10,7 +10,7 @@ lib/plugins/styling/ - if the folder is called different it
 will not work!
 
 Please refer to http://www.dokuwiki.org/plugins for additional info
-on how to install plugins in DokuWiki.
+on how to install plugins in EasyWiki.
 
 ----
 Copyright (C) Andreas Gohr <andi@splitbrain.org>
@@ -24,4 +24,4 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
-See the COPYING file in your DokuWiki folder for details
+See the COPYING file in your EasyWiki folder for details

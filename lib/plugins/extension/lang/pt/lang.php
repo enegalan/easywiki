@@ -3,7 +3,7 @@
 /**
  * @license    GPL 2 (http://www.gnu.org/licenses/gpl.html)
  *
- * @author Thalles Lázaro <dokuwiki@thall.es>
+ * @author Thalles Lázaro <easywiki@thall.es>
  * @author Eduardo Mozart de Oliveira <eduardomozart182@gmail.com>
  * @author JPdroid <jpdroid.jpo@gmail.com>
  * @author Rafael Fernandes <rafa.fernan10@gmail.com>
@@ -122,7 +122,7 @@ $lang['install_url']           = 'Instalar a partir da URL:';
 $lang['install_upload']        = 'Enviar Extensão:';
 $lang['repo_badresponse']      = 'O repositório de plugin retornou uma mensagem inválida.';
 $lang['repo_error']            = 'O repositório do plugin não pôde ser contactado. Verifique se o seu servidor está autorizado a conectar com www.dokuwiki.org e verifique as configurações de proxy do servidor.';
-$lang['nossl']                 = 'Seu PHP parece que perdeu o suporte a SSL. O download não vai funcionar para muitas extensões DokuWiki.';
+$lang['nossl']                 = 'Seu PHP parece que perdeu o suporte a SSL. O download não vai funcionar para muitas extensões EasyWiki.';
 $lang['popularity_high']       = 'Esta é uma das extensões mais populares';
 $lang['popularity_medium']     = 'Esta extensão é bastante popular';
 $lang['popularity_low']        = 'Esta extensão despertou algum interesse';

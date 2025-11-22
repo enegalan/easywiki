@@ -91,4 +91,4 @@ $lang['auth']                  = 'Autorizacijski dodatak nije podešen, razmotri
 $lang['install_url']           = 'Ugradi s URL-a:';
 $lang['install_upload']        = 'Učitaj proširenje:';
 $lang['repo_error']            = 'Repozitorij dodataka nije dostupan. Budite sigurni da server može pristupiti www.dokuwiki.org i provjerite proxy postavke.';
-$lang['nossl']                 = 'Izgleda da korišteni PHP ne podržava SSL. Učitavanje neće raditi na mnogim DokuWiki dodatcima.';
+$lang['nossl']                 = 'Izgleda da korišteni PHP ne podržava SSL. Učitavanje neće raditi na mnogim EasyWiki dodatcima.';

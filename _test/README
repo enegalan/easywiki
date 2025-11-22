@@ -1,6 +1,6 @@
-====== DokuWiki Test Suite and Develpoment Tools ======
+====== EasyWiki Test Suite and Develpoment Tools ======
 
-This directory contains the test suite for DokuWiki as well as configuration for various code quality tools.
+This directory contains the test suite for EasyWiki as well as configuration for various code quality tools.
 
 ===== Setup =====
 
@@ -12,7 +12,7 @@ If you don't have composer installed yet, you can get it from https://getcompose
 
 ===== Composer Scripts =====
 
-The composer configuration contains a number of scripts to run the various tools on all of DokuWiki.
+The composer configuration contains a number of scripts to run the various tools on all of EasyWiki.
 
 Run all the tests:
 

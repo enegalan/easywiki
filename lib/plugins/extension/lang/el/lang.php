@@ -95,7 +95,7 @@ $lang['install_url']           = 'Εγκατάσταση από το URL:';
 $lang['install_upload']        = 'Ανεβάστε το πρόσθετο:';
 
 $lang['repo_error']            = 'Σφάλμα επικοινωνίας με την αρχειοθήκη πρόσθετων. Βεβαιωθείτε ότι είναι προσβάσιμο το www.dokuwiki.org και ελέγξετε τις σχετικές ρυθμίσεις proxy.';
-$lang['nossl']                        = 'Your PHP seems to miss SSL support. Downloading will not work for many DokuWiki extensions.';
+$lang['nossl']                        = 'Your PHP seems to miss SSL support. Downloading will not work for many EasyWiki extensions.';
 
 $lang['js']['display_viewoptions']    = 'Επιλογές εμφάνισης:';
 $lang['js']['display_enabled']        = 'ενεργοποιημένο';

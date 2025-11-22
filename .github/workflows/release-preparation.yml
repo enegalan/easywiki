@@ -64,8 +64,8 @@ jobs:
           git merge -s ours origin/stable
           echo '${{ env.next_raw }}' > VERSION
           git add VERSION
-          sed -i 's/\$updateVersion = "[^"]*";/\$updateVersion = "${{ env.next_update }}";/' doku.php
-          git add doku.php
+          sed -i 's/\$updateVersion = "[^"]*";/\$updateVersion = "${{ env.next_update }}";/' wiki.php
+          git add wiki.php
           git commit --amend -m 'Release preparations for ${{ env.next_raw }}'
           git log -1
           git log origin/stable..master --oneline

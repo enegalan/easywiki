@@ -4,7 +4,7 @@
  *
  * This file was initially built by fetching translations from other
  * Wiki projects. See the @url lines below. Additional translations
- * and fixes where done for DokuWiki by the people mentioned in the
+ * and fixes where done for EasyWiki by the people mentioned in the
  * lines starting with @author
  *
  * @url http://svn.wikimedia.org/viewvc/mediawiki/trunk/phase3/languages/messages/MessagesMr.php?view=co
@@ -251,10 +251,10 @@ $lang['i_phpver']              = 'तुमची PHP आवृत्ति <cod
 $lang['i_permfail']            = '<code>%s</code> या डिरेक्टरी मध्ये डॉक्युविकि बदल करू शकत नाही. कृपया या डिरेक्टरीच्या परवानग्या ठीक करा.';
 $lang['i_confexists']          = '<code>%s</code> आधीच अस्तित्वात आहे.';
 $lang['i_writeerr']            = '<code>%s</code> निर्माण करू शकलो नाही. तुम्हाला डिरेक्टरी / फाइल च्या परवानग्या तपासून स्वतःच ही फाइल बनवावी लागेल.';
-$lang['i_badhash']             = 'अनाकलनीय किंवा बदललेले dokuwiki.php (hash=<code>%s</code>)';
+$lang['i_badhash']             = 'अनाकलनीय किंवा बदललेले easywiki.php (hash=<code>%s</code>)';
 $lang['i_badval']              = 'code>%s</code> - अवैध किंवा रिकामा मजकूर.';
-$lang['i_success']             = 'व्यवस्था लावण्याचे काम यशस्वीरीत्या पार पडले. आता तुम्ही install.php डिलीट करू शकता. <a href="doku.php?id=wiki:welcome">तुमच्या नविन डॉक्युविकि </a> वर जा.';
-$lang['i_failure']             = 'कॉन्फिगुरेशनच्या फाइल सुरक्षित करताना काही अडचणी आल्या आहेत. <a href="doku.php?id=wiki:welcome">तुमची नवीन डॉक्युविकि </a> वापरण्याआधी तुम्हाला ह्या फाइल स्वतः ठीक कराव्या लागतील.';
+$lang['i_success']             = 'व्यवस्था लावण्याचे काम यशस्वीरीत्या पार पडले. आता तुम्ही install.php डिलीट करू शकता. <a href="wiki.php?id=wiki:welcome">तुमच्या नविन डॉक्युविकि </a> वर जा.';
+$lang['i_failure']             = 'कॉन्फिगुरेशनच्या फाइल सुरक्षित करताना काही अडचणी आल्या आहेत. <a href="wiki.php?id=wiki:welcome">तुमची नवीन डॉक्युविकि </a> वापरण्याआधी तुम्हाला ह्या फाइल स्वतः ठीक कराव्या लागतील.';
 $lang['i_policy']              = 'आरंभीची ACL पॉलिसी';
 $lang['i_pol0']                = 'मुक्त विकी ( सर्वांना वाचन, लेखन व अपलोड करण्याची परवानगी )';
 $lang['i_pol1']                = 'सार्वजनिक विकी ( सर्वांना वाचण्याची मुभा , लेखन व अपलोडची परवानगी फक्त नोंदणीकृत सदस्यांना )';
@@ -262,4 +262,4 @@ $lang['i_pol2']                = 'बंदिस्त विकी ( वाच
 $lang['i_retry']               = 'पुन्हा प्रयत्न';
 $lang['recent_global']         = 'तुम्ही सध्या <b>%s</b> या नेमस्पेस मधील बदल पाहात आहात.तुम्ही <a href="%s">पूर्ण विकी मधले बदल </a> सुद्धा पाहू शकता.';
 $lang['email_signature_text'] = 'हा ईमेल, येथील डॉक्युविकिद्वारा आपोआप तयार केला गेला आहे
-@DOKUWIKIURL@';
+@EASYWIKIURL@';

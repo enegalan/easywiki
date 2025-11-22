@@ -1,11 +1,11 @@
 <?php
 
-use dokuwiki\Extension\ActionPlugin;
-use dokuwiki\Extension\EventHandler;
-use dokuwiki\Extension\Event;
+use easywiki\Extension\ActionPlugin;
+use easywiki\Extension\EventHandler;
+use easywiki\Extension\Event;
 
 /**
- * DokuWiki Plugin logviewer (Action Component)
+ * EasyWiki Plugin logviewer (Action Component)
  *
  * @license GPL 2 http://www.gnu.org/licenses/gpl-2.0.html
  * @author Andreas Gohr <andi@splitbrain.org>

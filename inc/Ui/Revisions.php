@@ -1,17 +1,17 @@
 <?php
 
-namespace dokuwiki\Ui;
+namespace easywiki\Ui;
 
-use dokuwiki\ChangeLog\ChangeLog;
+use easywiki\ChangeLog\ChangeLog;
 
 /**
- * DokuWiki Revisions Interface
+ * EasyWiki Revisions Interface
  * parent class of PageRevisions and MediaRevisions
  *
  * Note: navigation starts from -1, not 0. This is because our Revision management starts old revisions at 0 and
  * will return the current revision only if the revisions starting at -1 are requested.
  *
- * @package dokuwiki\Ui
+ * @package easywiki\Ui
  */
 abstract class Revisions extends Ui
 {

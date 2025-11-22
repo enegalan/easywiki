@@ -1,8 +1,8 @@
 <?php
 
-namespace dokuwiki\plugin\config\core\Setting;
+namespace easywiki\plugin\config\core\Setting;
 
-use dokuwiki\plugin\config\core\Configuration;
+use easywiki\plugin\config\core\Configuration;
 
 /**
  * Class Setting
@@ -172,7 +172,7 @@ class Setting
      *
      * 'plugin' for plugin configuration
      * 'template' for template configuration
-     * 'dokuwiki' for core configuration
+     * 'easywiki' for core configuration
      *
      * @return string
      */
@@ -183,7 +183,7 @@ class Setting
         } elseif (str_starts_with($this->getKey(), 'tpl' . Configuration::KEYMARKER)) {
             return 'template';
         } else {
-            return 'dokuwiki';
+            return 'easywiki';
         }
     }
 
