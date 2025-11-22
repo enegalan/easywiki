@@ -15,7 +15,8 @@
 ********************************************************************/
 
 #easywiki__header {
-    padding: 2em 0 1.5em;
+    padding: 2.5em 0 2em;
+    transition: all 0.3s ease;
 
     .headings,
     .tools {
@@ -28,38 +29,58 @@
 
     .logo {
         margin: 0;
-        font-size: 1.5em;
-        font-weight: normal;
+        font-size: 1.75em;
+        font-weight: 600;
         line-height: 1.2;
+        letter-spacing: -0.02em;
 
         img {
             float: left;
-            margin-right: .5em;
-            height: 64px;
+            margin-right: .75em;
+            height: 72px;
             width: auto;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+            transition: transform 0.3s ease;
+        }
+
+        &:hover img {
+            transform: scale(1.05);
         }
 
         span {
             display: block;
-            padding-top: 10px;
+            padding-top: 12px;
+            color: @ini_text;
         }
 
         a {
             text-decoration: none;
             color: @ini_text;
             background-color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: @ini_link;
         }
     }
 
     p.claim {
         margin-bottom: 0;
-        font-size: 0.875em;
+        font-size: 0.9375em;
+        color: @ini_text_alt;
+        font-style: italic;
     }
 
     /* make all links in header (including breadcrumb and interwiki) same colour as the rest */
     a {
         color: @ini_link;
         background-color: inherit;
+        transition: color 0.2s ease;
+    }
+
+    a:hover {
+        color: darken(@ini_link, 10%);
     }
 }
 
@@ -98,6 +119,11 @@
         list-style: none;
         display: inline;
         vertical-align: top;
+        transition: transform 0.2s ease;
+    }
+
+    li:hover {
+        transform: translateY(-1px);
     }
 
     form.search div.ajax_qsearch li {
@@ -106,6 +132,11 @@
         display: block;
         overflow: hidden;
         text-overflow: ellipsis;
+        transition: background-color 0.2s ease;
+    }
+
+    form.search div.ajax_qsearch li:hover {
+        background-color: @ini_background_alt;
     }
 }
 
@@ -135,35 +166,127 @@
 form.search {
     display: block;
     position: relative;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.75em;
+
+    div.no {
+        position: relative;
+        display: inline-block;
+    }
 
     input {
-        width: 18em;
-        padding: .35em 22px .35em .1em;
+        width: 20em;
+        max-width: 100%;
+        padding: 0.75em 3.25em 0.75em 1.25em;
+        border: 1.5px solid @ini_border;
+        border-radius: 12px;
+        background-color: @ini_background;
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+        font-size: 0.9375em;
+        color: @ini_text;
+        font-weight: 400;
+        line-height: 1.5;
+        display: block;
+    }
+
+    input::placeholder {
+        color: @ini_text_alt;
+        opacity: 0.6;
+        font-weight: 400;
+    }
+
+    input:hover {
+        border-color: darken(@ini_border, 12%);
+        background-color: lighten(@ini_background, 0.5%);
+    }
+
+    input:focus {
+        outline: none;
+        border-color: @ini_link;
+        background-color: @ini_background;
+        box-shadow: 0 0 0 3px rgba(43, 115, 183, 0.12), 0 4px 12px rgba(0, 0, 0, 0.08);
+        transform: translateY(-1px);
     }
 
     button {
-        background: transparent url(images/search.png) no-repeat 0 0;
-        border-width: 0;
-        width: 19px;
-        height: 14px;
-        text-indent: -99999px;
-        margin-left: -20px;
-        box-shadow: none;
+        position: absolute;
+        right: 0.75em;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
         padding: 0;
+        text-indent: -99999px;
+        overflow: hidden;
+        opacity: 0.5;
+        transition: all 0.2s ease;
+        z-index: 1;
+        box-shadow: none;
+    }
+
+    button::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 16px;
+        height: 16px;
+        border: 2px solid @ini_text_alt;
+        border-radius: 50%;
+        box-sizing: border-box;
+    }
+
+    button::after {
+        content: '';
+        position: absolute;
+        bottom: 2px;
+        right: 2px;
+        width: 6px;
+        height: 2px;
+        background: @ini_text_alt;
+        border-radius: 1px;
+        transform: rotate(45deg);
+        transform-origin: right center;
+    }
+
+    button:hover {
+        opacity: 0.8;
+    }
+
+    button:hover::before {
+        border-color: @ini_link;
+    }
+
+    button:hover::after {
+        background: @ini_link;
+    }
+
+    input:focus + button,
+    button:focus {
+        outline: none;
+        opacity: 1;
+    }
+
+    input:focus + button::before {
+        border-color: @ini_link;
+    }
+
+    input:focus + button::after {
+        background: @ini_link;
     }
 }
 
 [dir=rtl] form.search {
     input {
-        padding: .35em .1em .35em 22px;
+        padding: 0.75em 1.25em 0.75em 3.25em;
     }
 
     button {
-        background-position: 5px 0;
-        margin-left: 0;
-        margin-right: -20px;
-        position: relative;
+        right: auto;
+        left: 0.75em;
     }
 }
 
@@ -178,6 +301,7 @@ form.search {
 
     div {
         padding: .1em .35em;
+        transition: color 0.2s ease;
     }
 
     div:only-child {
@@ -195,6 +319,16 @@ form.search {
 
     .bcsep {
         font-size: 0.75em;
+        color: @ini_text_alt;
+        margin: 0 0.25em;
+    }
+
+    a {
+        transition: color 0.2s ease;
+    }
+
+    a:hover {
+        color: @ini_link;
     }
 }
 
@@ -205,28 +339,37 @@ form.search {
     font-size: 0.875em;
     overflow: hidden;
     word-wrap: break-word;
+    background: linear-gradient(to bottom, @ini_background 0%, @ini_background_alt 100%);
+    border-radius: 8px;
+    padding: 1em;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 
     /* make sidebar more condensed */
 
     h1 {
         font-size: 1.714em;
-        margin-bottom: .292em;
+        margin-bottom: .4em;
+        font-weight: 600;
     }
 
     h2 {
-        margin-bottom: .333em;
+        margin-bottom: .5em;
+        font-weight: 600;
     }
 
     h3 {
-        margin-bottom: .444em;
+        margin-bottom: .6em;
+        font-weight: 600;
     }
 
     h4 {
-        margin-bottom: .5em;
+        margin-bottom: .7em;
+        font-weight: 600;
     }
 
     h5 {
-        margin-bottom: .5714em;
+        margin-bottom: .8em;
+        font-weight: 600;
     }
 
     p,
@@ -257,6 +400,14 @@ form.search {
     a:visited {
         color: @ini_link;
         background-color: inherit;
+        transition: color 0.2s ease, padding-left 0.2s ease;
+        display: inline-block;
+        padding: 0.2em 0;
+    }
+
+    a:hover {
+        color: darken(@ini_link, 10%);
+        padding-left: 0.3em;
     }
 }
 
@@ -275,18 +426,22 @@ form.search {
     margin-top: -1.5em;
     overflow: hidden;
     padding: 0.5em 1em 0;
+    z-index: 1;
+    position: relative;
 
     span {
-        font-size: 0.875em;
+        font-size: 0.8125em;
         border: solid @ini_background_alt;
         border-width: 1px 1px 0;
         background-color: @ini_background;
         color: @ini_text_alt;
-        padding: .1em .35em;
-        border-top-left-radius: 2px;
-        border-top-right-radius: 2px;
-        box-shadow: 0 0 .5em @ini_text_alt;
+        padding: .4em .75em;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.08);
         display: block;
+        font-weight: 500;
+        letter-spacing: 0.02em;
     }
 }
 
@@ -295,19 +450,29 @@ form.search {
     background: @ini_background;
     color: inherit;
     border: 1px solid @ini_background_alt;
-    box-shadow: 0 0 .5em @ini_text_alt;
-    border-radius: 2px;
-    padding: 1.556em 2em 2em;
-    margin-bottom: .5em;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+    border-radius: 8px 0 8px 8px;
+    padding: 2em 2.5em 2.5em;
+    margin-bottom: 1em;
     overflow-x: clip;
     overflow-y: visible;
     word-wrap: break-word;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+    position: relative;
+}
+
+.easywiki div.page:hover {
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .easywiki .docInfo {
     font-size: 0.875em;
     text-align: right;
     overflow-wrap: break-word;
+    color: @ini_text_alt;
+    padding: 0.75em 0;
+    border-top: 1px solid @ini_background_alt;
+    margin-top: 1em;
 }
 
 /* license note under edit window */
@@ -333,21 +498,43 @@ form.search {
 }
 
 #easywiki__footer {
-    margin-bottom: 1em;
+    margin-bottom: 2em;
+    margin-top: 3em;
     text-align: center;
+    padding: 2em 0;
+    border-top: 1px solid @ini_border;
+    background: linear-gradient(to bottom, transparent, @ini_background_alt 100%);
 
     > .pad {
         font-size: 0.875em;
+        color: @ini_text_alt;
     }
 
     div.license {
-        margin-bottom: 0.5em;
+        margin-bottom: 1em;
         font-size: 100%;
     }
 
+    div.buttons {
+        display: flex;
+        justify-content: center;
+        gap: 0.5em;
+        flex-wrap: wrap;
+    }
+
     div.buttons a {
+        display: inline-block;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+        border-radius: 4px;
+        padding: 0.25em;
+
         img {
-            opacity: 0.5;
+            opacity: 0.6;
+            transition: opacity 0.2s ease;
+        }
+
+        &:hover {
+            transform: translateY(-2px);
         }
 
         &:hover img,

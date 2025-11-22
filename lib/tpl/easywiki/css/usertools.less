@@ -25,10 +25,20 @@
         }
     }
 
+    li.action a {
+        transition: all 0.2s ease;
+        padding: 0.25em 0.5em;
+        border-radius: 6px;
+    }
+
     li.action a:hover,
     li.action a:active {
+        background-color: @ini_background_alt;
+        transform: translateY(-1px);
+
         svg {
             fill: @ini_link;
+            transform: scale(1.1);
         }
     }
 

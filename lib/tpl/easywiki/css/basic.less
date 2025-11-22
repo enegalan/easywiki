@@ -20,9 +20,11 @@ body {
     padding: 0;
 }
 body {
-    font: normal 87.5%/1.4 Arial, sans-serif;
+    font: normal 87.5%/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     /* default font size: 100% => 16px; 93.75% => 15px; 87.5% => 14px; 81.25% => 13px; 75% => 12px */
     -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 
@@ -57,28 +59,50 @@ h6 {
 }
 
 h1 {
-    font-size: 2em;
-    margin: 0 0 0.444em;
+    font-size: 2.25em;
+    margin: 0 0 0.5em;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: @ini_text;
+    line-height: 1.2;
 }
 h2 {
-    font-size: 1.5em;
-    margin: 0 0 0.666em;
+    font-size: 1.75em;
+    margin: 0 0 0.75em;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: @ini_text;
+    line-height: 1.3;
 }
 h3 {
-    font-size: 1.125em;
-    margin: 0 0 0.888em;
+    font-size: 1.25em;
+    margin: 0 0 1em;
+    font-weight: 600;
+    color: @ini_text;
+    line-height: 1.4;
 }
 h4 {
-    font-size: 1em;
-    margin: 0 0 1.0em;
+    font-size: 1.0625em;
+    margin: 0 0 1.1em;
+    font-weight: 600;
+    color: @ini_text;
+    line-height: 1.4;
 }
 h5 {
-    font-size: .875em;
-    margin: 0 0 1.1428em;
+    font-size: .9375em;
+    margin: 0 0 1.2em;
+    font-weight: 600;
+    color: @ini_text;
+    line-height: 1.4;
 }
 h6 {
-    font-size: .75em;
-    margin: 0 0 1.333em;
+    font-size: .875em;
+    margin: 0 0 1.3em;
+    font-weight: 600;
+    color: @ini_text_alt;
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 /* bottom margin = 1 / font-size */
 
@@ -163,11 +187,17 @@ table {
     empty-cells: show;
     border-spacing: 0;
     border: 1px solid @ini_border;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 caption {
     caption-side: top;
     text-align: left;
+    font-weight: 600;
+    padding: 0.5em 0;
+    color: @ini_text;
 }
 [dir=rtl] caption {
     text-align: right;
@@ -175,18 +205,25 @@ caption {
 
 th,
 td {
-    padding: .3em .5em;
+    padding: .5em .75em;
     margin: 0;
     vertical-align: top;
     border: 1px solid @ini_border;
+    transition: background-color 0.2s ease;
 }
 th {
-    font-weight: bold;
-    background-color: @ini_background_alt;
+    font-weight: 600;
+    background: linear-gradient(to bottom, @ini_background_alt 0%, darken(@ini_background_alt, 2%) 100%);
     text-align: left;
+    color: @ini_text;
+    letter-spacing: 0.01em;
 }
 [dir=rtl] th {
     text-align: right;
+}
+
+tr:hover td {
+    background-color: lighten(@ini_background_alt, 2%);
 }
 
 
@@ -199,6 +236,7 @@ a:link,
 a:visited {
     text-decoration: none;
     color: @ini_link;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
 }
 a:link:hover,
 a:visited:hover,
@@ -207,6 +245,7 @@ a:visited:focus,
 a:link:active,
 a:visited:active {
     text-decoration: underline;
+    color: darken(@ini_link, 8%);
 }
 
 
@@ -268,32 +307,42 @@ pre,
 code,
 samp,
 kbd {
-    font-family: Consolas, "Andale Mono WT", "Andale Mono", "Bitstream Vera Sans Mono", "Nimbus Mono L", Monaco, "Courier New", monospace;
+    font-family: "SF Mono", "Monaco", "Inconsolata", "Fira Code", "Droid Sans Mono", "Source Code Pro", Consolas, "Andale Mono WT", "Andale Mono", "Bitstream Vera Sans Mono", "Nimbus Mono L", Monaco, "Courier New", monospace;
     /* same font stack should be used for ".easywiki table.diff td" in _diff.css */
-    font-size: 1em;
+    font-size: 0.9375em;
     direction: ltr;
     text-align: left;
     background-color: @ini_background_site;
     color: @ini_text;
     box-shadow: inset 0 0 .3em @ini_border;
-    border-radius: 2px;
+    border-radius: 6px;
 }
 pre {
     overflow: auto;
     word-wrap: normal;
     border: 1px solid @ini_border;
-    border-radius: 2px;
-    box-shadow: inset 0 0 .5em @ini_border;
-    padding: .7em 1em;
+    border-radius: 6px;
+    box-shadow: inset 0 0 .5em @ini_border, 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 1em 1.25em;
+    background: linear-gradient(to bottom, @ini_background 0%, @ini_background_site 100%);
 }
 
 blockquote {
-    padding: 0 .5em;
-    border: solid @ini_border;
-    border-width: 0 0 0 .25em;
+    padding: 0.75em 1em 0.75em 1.5em;
+    border: solid @ini_link;
+    border-width: 0 0 0 4px;
+    background: linear-gradient(to right, rgba(43, 115, 183, 0.05), transparent);
+    border-radius: 0 6px 6px 0;
+    margin-left: 0;
+    margin-right: 0;
+    font-style: italic;
+    color: @ini_text_neu;
 }
 [dir=rtl] blockquote {
-    border-width: 0 .25em 0 0;
+    border-width: 0 4px 0 0;
+    border-radius: 6px 0 0 6px;
+    padding: 0.75em 1.5em 0.75em 1em;
+    background: linear-gradient(to left, rgba(43, 115, 183, 0.05), transparent);
 }
 q:before,
 q:after {
@@ -416,13 +465,16 @@ a.button,
 button,
 .qq-upload-button {
     color: #333;
-    background-color: #eee;
-    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9Imc4MjQiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+CjxzdG9wIHN0b3AtY29sb3I9IiNGRkZGRkYiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiNGNEY0RjQiIG9mZnNldD0iMC4zIi8+PHN0b3Agc3RvcC1jb2xvcj0iI0VFRUVFRSIgb2Zmc2V0PSIwLjk5Ii8+PHN0b3Agc3RvcC1jb2xvcj0iI0NDQ0NDQyIgb2Zmc2V0PSIuOTkiLz4KPC9saW5lYXJHcmFkaWVudD4KPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNnODI0KSIgLz4KPC9zdmc+);
-    background-image: linear-gradient(to bottom, #ffffff 0%, #f4f4f4 30%, #eeeeee 99%, #cccccc 99%);
-    border: 1px solid #ccc;
-    border-radius: 2px;
-    padding: .1em .5em;
+    background: linear-gradient(to bottom, #ffffff 0%, #f8f8f8 50%, #f0f0f0 100%);
+    border: 1px solid #d0d0d0;
+    border-radius: 6px;
+    padding: .5em 1.25em;
     cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
 }
 
 input[type=submit]:hover,
@@ -430,10 +482,10 @@ input[type=submit]:active,
 input[type=submit]:focus,
 input[type=button]:hover,
 input[type=button]:active,
-input[type=button]:hover,
+input[type=button]:focus,
 input[type=reset]:hover,
 input[type=reset]:active,
-input[type=reset]:hover,
+input[type=reset]:focus,
 input.button:hover,
 input.button:active,
 input.button:focus,
@@ -445,9 +497,19 @@ button:active,
 button:focus,
 .qq-upload-button:hover {
     border-color: #999;
-    background-color: #ddd;
-    background-image:url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHZpZXdCb3g9IjAgMCAxIDEiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPgo8bGluZWFyR3JhZGllbnQgaWQ9Imc2NzAiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIiB4MT0iMCUiIHkxPSIwJSIgeDI9IjAlIiB5Mj0iMTAwJSI+CjxzdG9wIHN0b3AtY29sb3I9IiNGRkZGRkYiIG9mZnNldD0iMCIvPjxzdG9wIHN0b3AtY29sb3I9IiNGNEY0RjQiIG9mZnNldD0iMC4zIi8+PHN0b3Agc3RvcC1jb2xvcj0iI0RERERERCIgb2Zmc2V0PSIwLjk5Ii8+PHN0b3Agc3RvcC1jb2xvcj0iI0JCQkJCQiIgb2Zmc2V0PSIuOTkiLz4KPC9saW5lYXJHcmFkaWVudD4KPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNnNjcwKSIgLz4KPC9zdmc+);
-    background-image: linear-gradient(to bottom, #ffffff 0%, #f4f4f4 30%, #dddddd 99%, #bbbbbb 99%);
+    background: linear-gradient(to bottom, #f8f8f8 0%, #f0f0f0 50%, #e8e8e8 100%);
+    transform: translateY(-1px);
+}
+
+input[type=submit]:active,
+input[type=button]:active,
+input[type=reset]:active,
+input.button:active,
+a.button:active,
+button:active,
+.qq-upload-button:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 input::-moz-focus-inner,

@@ -170,35 +170,93 @@
     /* .JSpopup */
     div.ajax_qsearch {
         position: absolute;
-        top: 0;
-        left: -13.5em; /* -( width of #qsearch__in + padding of .ajax_qsearch + a bit more ) */
-        width: 12em;
-        padding: 0.5em;
-        font-size: .9em;
-        z-index: 20;
+        top: calc(100% + 0.75em);
+        left: 0;
+        width: 20em;
+        max-width: 90vw;
+        padding: 0.5em 0;
+        font-size: 0.9em;
+        z-index: 100;
         text-align: left;
         display: none;
+        background: @ini_background;
+        border: 1px solid @ini_border;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
+        max-height: 420px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        animation: searchFadeIn 0.2s ease;
 
         strong {
             display: block;
-            margin-bottom: .3em;
+            margin-bottom: 0.25em;
+            padding: 0.75em 1.25em 0.5em;
+            font-weight: 600;
+            color: @ini_text;
+            font-size: 0.8125em;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            background: linear-gradient(to bottom, @ini_background_alt, transparent);
+            border-bottom: 1px solid @ini_border;
         }
 
         ul {
             margin: 0 !important;
-            padding: 0 !important;
+            padding: 0.5em 0 !important;
 
             li {
                 margin: 0;
                 padding: 0;
                 display: block !important;
+
+                a {
+                    display: block;
+                    padding: 0.625em 1.25em;
+                    color: @ini_text;
+                    text-decoration: none;
+                    transition: all 0.2s ease;
+                    border-left: 3px solid transparent;
+                }
+
+                a:hover,
+                a:focus {
+                    background-color: rgba(43, 115, 183, 0.06);
+                    color: @ini_link;
+                    border-left-color: @ini_link;
+                    padding-left: 1.5em;
+                }
             }
         }
     }
 }
 
+@keyframes searchFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 [dir=rtl] .easywiki form.search div.ajax_qsearch {
     left: auto;
-    right: -13.5em;
+    right: 0;
     text-align: right;
+
+    ul li a {
+        border-left: none;
+        border-right: 3px solid transparent;
+    }
+
+    ul li a:hover,
+    ul li a:focus {
+        border-right-color: @ini_link;
+        border-left: none;
+        padding-right: 1.5em;
+        padding-left: 1.25em;
+    }
 }

@@ -38,12 +38,26 @@
 .easywiki a.wikilink1 {
     color: @ini_existing;
     background-color: inherit;
+    transition: color 0.2s ease;
+    border-bottom: 1px dotted transparent;
+}
+
+.easywiki a.wikilink1:hover {
+    color: darken(@ini_existing, 10%);
+    border-bottom-color: @ini_existing;
 }
 
 /* not existing wikipage */
 .easywiki a.wikilink2 {
     color: @ini_missing;
     background-color: inherit;
+    transition: color 0.2s ease;
+    border-bottom: 1px dotted transparent;
+}
+
+.easywiki a.wikilink2:hover {
+    color: darken(@ini_missing, 10%);
+    border-bottom-color: @ini_missing;
 }
 
 /*____________ images ____________*/
@@ -99,12 +113,16 @@
     min-width: 50%;
 }
 
+.easywiki table.inline tr {
+    transition: background-color 0.2s ease;
+}
+
 .easywiki table.inline tr:hover td {
-    background-color: @ini_background_alt;
+    background-color: lighten(@ini_background_alt, 2%);
 }
 
 .easywiki table.inline tr:hover th {
-    background-color: @ini_border;
+    background-color: darken(@ini_background_alt, 3%);
 }
 
 /*____________ code ____________*/
@@ -176,10 +194,22 @@
     background-color: @ini_background;
     color: @ini_text;
     border: 1px solid @ini_border;
-    box-shadow: .1em .1em .1em @ini_border;
-    border-radius: 2px;
-    padding: .3em .5em;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: .5em .75em;
     font-size: .9em;
+    animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .easywiki form.search div.ajax_qsearch {
@@ -257,6 +287,14 @@
     margin: 0 -2em;
     padding: 0 1em;
     border-width: 0 1em;
+    background: linear-gradient(to right, rgba(43, 115, 183, 0.05), transparent);
+    border-left: 3px solid @ini_link;
+    border-radius: 0 6px 6px 0;
+    transition: all 0.2s ease;
+}
+
+.easywiki div.section_highlight:hover {
+    background: linear-gradient(to right, rgba(43, 115, 183, 0.08), transparent);
 }
 
 .easywiki textarea.edit {
@@ -286,15 +324,23 @@
 #dw__toc {
     margin: -1.556em -2em .5em 1.4em;
     width: @ini_sidebar_width;
-    border-left: 1px solid @ini_border;
-    background: @ini_background;
+    border-left: 3px solid @ini_link;
+    background: linear-gradient(to bottom, @ini_background 0%, @ini_background_alt 100%);
     color: inherit;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+#dw__toc:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 [dir=rtl] #dw__toc {
     margin: -1.556em 1.4em .5em -2em;
     border-left-width: 0;
-    border-right: 1px solid @ini_border;
+    border-right: 3px solid @ini_link;
+    border-radius: 8px 0 0 8px;
 }
 
 .easywiki.export #dw__toc {
@@ -308,10 +354,18 @@
 }
 
 .easywiki h3.toggle {
-    padding: .5em 1em;
+    padding: .75em 1.25em;
     margin-bottom: 0;
     font-size: .875em;
     letter-spacing: .1em;
+    font-weight: 600;
+    background: linear-gradient(to bottom, @ini_background_alt, @ini_background);
+    border-radius: 8px 8px 0 0;
+    transition: background 0.2s ease;
+}
+
+.easywiki h3.toggle:hover {
+    background: linear-gradient(to bottom, darken(@ini_background_alt, 2%), @ini_background);
 }
 
 #easywiki__aside h3.toggle {
@@ -323,6 +377,7 @@
     width: 8px;
     height: 5px;
     margin: .4em 0 0;
+    transition: transform 0.2s ease;
 }
 
 .easywiki .toggle.closed strong {
@@ -336,7 +391,7 @@
 #dw__toc {
     > div {
         font-size: 0.875em;
-        padding: .5em 1em 1em;
+        padding: .75em 1.25em 1.25em;
     }
 
     ul {
@@ -344,6 +399,11 @@
 
         li {
             list-style-image: url(images/toc-bullet.png);
+            transition: transform 0.2s ease;
+        }
+
+        li:hover {
+            transform: translateX(2px);
         }
     }
 
@@ -352,12 +412,29 @@
     }
 
     ul li div.li {
-        padding: .2em 0;
+        padding: .3em 0;
+        transition: color 0.2s ease;
+    }
+
+    ul li div.li:hover {
+        color: @ini_link;
+    }
+
+    a {
+        transition: color 0.2s ease;
+    }
+
+    a:hover {
+        color: @ini_link;
     }
 }
 
 [dir=rtl] #dw__toc ul {
     padding: 0 1.5em 0 0;
+}
+
+[dir=rtl] #dw__toc ul li:hover {
+    transform: translateX(-2px);
 }
 
 /*____________ changes to _imgdetail ____________*/

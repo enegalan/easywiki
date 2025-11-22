@@ -3,17 +3,24 @@
  *
  * @author Anika Henke <anika@selfthinker.org>
  */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0 auto;
+    transition: background-color 0.3s ease;
 }
 
 #easywiki__site {
     margin: 0 auto;
     max-width: @ini_site_width;
+    position: relative;
 }
 
 #easywiki__site > .site {
-    padding: 0 .5em;
+    padding: 0 1em;
+    transition: padding 0.3s ease;
 }
 
 #easywiki__header {
