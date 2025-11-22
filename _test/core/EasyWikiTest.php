@@ -112,6 +112,9 @@ abstract class EasyWikiTest extends PHPUnit\Framework\TestCase {
 
         // disable all non-default plugins
         global $default_plugins;
+        if (!isset($default_plugins) || !is_array($default_plugins)) {
+            $default_plugins = array();
+        }
         foreach ($plugin_controller->getList() as $plugin) {
             if (!in_array($plugin, $default_plugins)) {
                 if (!$plugin_controller->disable($plugin)) {

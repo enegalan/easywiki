@@ -33,12 +33,12 @@ class mailer_test extends EasyWikiTest {
     function test_userheader(){
         $mail = new TestMailer();
         $headers = $mail->prop('headers');
-        $this->assertArrayNotHasKey('X-EasyWiki-User',$headers);
+        $this->assertArrayNotHasKey('X-Easywiki-User',$headers);
 
         $_SERVER['REMOTE_USER'] = 'andi';
         $mail = new TestMailer();
         $headers = $mail->prop('headers');
-        $this->assertArrayHasKey('X-EasyWiki-User',$headers);
+        $this->assertArrayHasKey('X-Easywiki-User',$headers);
     }
 
     function test_setHeader(){
@@ -47,8 +47,8 @@ class mailer_test extends EasyWikiTest {
         // check existance of default headers
         $headers = $mail->prop('headers');
         $this->assertArrayHasKey('X-Mailer',$headers);
-        $this->assertArrayHasKey('X-EasyWiki-Title',$headers);
-        $this->assertArrayHasKey('X-EasyWiki-Server',$headers);
+        $this->assertArrayHasKey('X-Easywiki-Title',$headers);
+        $this->assertArrayHasKey('X-Easywiki-Server',$headers);
         $this->assertArrayHasKey('X-Auto-Response-Suppress',$headers);
         $this->assertArrayHasKey('List-Id',$headers);
 

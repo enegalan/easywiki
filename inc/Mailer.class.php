@@ -61,9 +61,9 @@ class Mailer
             $this->setHeader('Return-Path', $conf['mailreturnpath']);
         }
         $this->setHeader('X-Mailer', 'EasyWiki');
-        $this->setHeader('X-EasyWiki-User', $INPUT->server->str('REMOTE_USER'));
-        $this->setHeader('X-EasyWiki-Title', $conf['title']);
-        $this->setHeader('X-EasyWiki-Server', $server);
+        $this->setHeader('X-Easywiki-User', $INPUT->server->str('REMOTE_USER'));
+        $this->setHeader('X-Easywiki-Title', $conf['title']);
+        $this->setHeader('X-Easywiki-Server', $server);
         $this->setHeader('X-Auto-Response-Suppress', 'OOF');
         $this->setHeader('List-Id', $conf['title'] . ' <' . $listid . '>');
         $this->setHeader('Date', date('r'), false);

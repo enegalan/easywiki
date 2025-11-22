@@ -62,3 +62,4 @@ All documentation and additional information besides the [[syntax|syntax descrip
 The EasyWiki engine is licensed under [[http://www.gnu.org/licenses/gpl.html|GNU General Public License]] Version 2. If you use EasyWiki in your company, consider [[doku>donate|donating]] a few bucks ;-).
 
 Not sure what this means? See the [[doku>faq:license|FAQ on the Licenses]].
+
