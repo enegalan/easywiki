@@ -163,6 +163,7 @@
 
     pre {
         box-shadow: inset -4px -4px .5em -.3em @ini_border;
+        border-radius: 0 6px 6px 6px;
     }
 }
 
@@ -284,17 +285,8 @@
 }
 
 .easywiki div.section_highlight {
-    margin: 0 -2em;
-    padding: 0 1em;
     border-width: 0 1em;
-    background: linear-gradient(to right, rgba(43, 115, 183, 0.05), transparent);
-    border-left: 3px solid @ini_link;
-    border-radius: 0 6px 6px 0;
     transition: all 0.2s ease;
-}
-
-.easywiki div.section_highlight:hover {
-    background: linear-gradient(to right, rgba(43, 115, 183, 0.08), transparent);
 }
 
 .easywiki textarea.edit {
@@ -324,16 +316,9 @@
 #dw__toc {
     margin: -1.556em -2em .5em 1.4em;
     width: @ini_sidebar_width;
-    border-left: 3px solid @ini_link;
-    background: linear-gradient(to bottom, @ini_background 0%, @ini_background_alt 100%);
     color: inherit;
     border-radius: 0 8px 8px 0;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
-}
-
-#dw__toc:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 [dir=rtl] #dw__toc {
@@ -359,7 +344,6 @@
     font-size: .875em;
     letter-spacing: .1em;
     font-weight: 600;
-    background: linear-gradient(to bottom, @ini_background_alt, @ini_background);
     border-radius: 8px 8px 0 0;
     transition: background 0.2s ease;
 }
@@ -400,10 +384,6 @@
         li {
             list-style-image: url(images/toc-bullet.png);
             transition: transform 0.2s ease;
-        }
-
-        li:hover {
-            transform: translateX(2px);
         }
     }
 

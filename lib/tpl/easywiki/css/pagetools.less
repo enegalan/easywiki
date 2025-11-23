@@ -73,7 +73,7 @@
                         margin: 0 @ico-margin;
                         display: inline-block;
                         vertical-align: middle;
-                        fill: @ini_border;
+                        color: @ini_border;
                     }
                 }
 
@@ -82,7 +82,6 @@
                 a:focus,
                 a:hover {
                     background: linear-gradient(to right, @ini_background_alt, lighten(@ini_background_alt, 2%));
-                    border-radius: 6px;
                     transition: all 0.2s ease;
 
                     span {
@@ -90,7 +89,7 @@
                     }
 
                     svg {
-                        fill: @ini_link;
+                        color: @ini_link;
                         transform: scale(1.1);
                         transition: all 0.2s ease;
                     }
@@ -121,6 +120,7 @@
         border-radius: 8px;
         box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease;
+        overflow: hidden;
 
         li a span {
             display: inline-block;
